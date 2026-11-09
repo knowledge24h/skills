@@ -1,0 +1,72 @@
+{
+  "project": {
+    "projectName": "测试项目Alpha",
+    "version": "1.0.0",
+    "date": "2026-11-08",
+    "division": "测试部"
+  },
+  "changeLog": [
+    {"no": 1, "version": "0.1", "content": "新做成", "author": "张三", "date": "2026-11-08"}
+  ],
+  "intro": {
+    "purpose": "本文为测试项目Alpha提供详细的软件需求定义，\n给开发和测试人员提供设计与测试执行的标准。",
+    "scope": "本文使用者：开发人员、测试人员、产品负责人。",
+    "referenceNote": "本文参考以下文档。",
+    "references": [["1", "系统总体设计方案", "V1.0"]],
+    "termsNote": "本文使用的术语如下。",
+    "terms": [["BMS", "Battery Management System", "电池管理系统"]]
+  },
+  "overview": {
+    "background": "为解决XXX问题而开发本系统。",
+    "goal": "本系统包含采集、管理两大模块。",
+    "external": "系统通过CAN总线与整车控制器通信。"
+  },
+  "functional": [
+    {
+      "title": "数据采集功能(Function Requirement No.1)",
+      "desc": "整体描述本功能的要求。",
+      "requirements": [
+        {
+          "title": "电压采集(Function Requirement No.1-1)",
+          "prsId": "PRS_volt_00001",
+          "type": "Valid",
+          "description": "当[采样周期]到达时，采集电芯电压；否则，保持上一次采样值。",
+          "upstreamId": "CR-001",
+          "dependencies": "无",
+          "asil": "QM(A)",
+          "status": "Draft",
+          "priority": "H",
+          "verification": "验证方法：ST\n验证环境：Tessy\n前提条件：模块初始化完成\n主要测试点：采样周期触发后电压值更新。",
+          "risk": "无",
+          "changeType": "新增",
+          "cr": "无"
+        }
+      ]
+    }
+  ],
+  "nonFunctional": {
+    "constraints": {
+      "desc": "软件运行环境约束。",
+      "requirements": [
+        {
+          "title": "运行环境约束(Non-Function Requirement No.1)",
+          "prsId": "PRS_NF_volt_00001",
+          "type": "Valid",
+          "description": "软件必须运行在XXX硬件平台上。"
+        }
+      ]
+    },
+    "performance": {
+      "desc": "性能要求。",
+      "requirements": [
+        {
+          "title": "采集响应时间(Non-Function Requirement No.2)",
+          "prsId": "PRS_NF_volt_00002",
+          "type": "Valid",
+          "description": "采集响应时间<=10ms。",
+          "priority": "H"
+        }
+      ]
+    }
+  }
+}
